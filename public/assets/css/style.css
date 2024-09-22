@@ -44,10 +44,6 @@
     margin-bottom: 40px;
   }
   
-  .senha-box {
-    margin-top: 40px;
-  }
-  
   .label {
     display: block;
     font-size: 32px;
@@ -55,68 +51,45 @@
     font-weight: 400;
   }
   
-  .senha-label {
-    margin-top: 40px;
-  }
-  
   .forgot {
-    position: relative;
-    width: 347px;
-    height: 57px;
-  }
-  
-  .forgot-box {
     font-size: 25px;
     width: 250px;
     height: 49px;
+    color: #FC957C;
     background-color: #FFE3E3;
     border: 4px solid #FC957C;
     border-radius: 28px;
-  }
-  
-  .forgot-text {
-    position: absolute;
-    left: 19px;
-    top: 9px;
-    color: #FC957C;
-    font-size: 32px;
     font-weight: 700;
   }
-  
+
   .entrar {
-    position: relative;
-    width: 141px;
-    height: 49px;
-    margin-top: 20px;
-  }
-  
-  .button {
     font-size: 25px;
     width: 141px;
     height: 49px;
+    color: #6DAF66;
     background-color: #D7EAD5;
     border: 4px solid #6DAF66;
     border-radius: 28px;
-  }
-  
-  .button-text {
-    position: absolute;
-    left: 19px;
-    top: 5px;
-    color: #6DAF66;
-    font-size: 32px;
     font-weight: 700;
   }
   
   .header {
-    width: 636px;
-    height: 157px;
+    width: 600px;
+    height: 90px;
     position: absolute;
-    top: 82px;
-    left: 61px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    top: 50px;
+    left: 50px;
+    display: flow-root;
+  }
+
+  .header h1 {
+    font-weight: 700;
+    font-size: 45px;
+  }
+
+  .header h2 {
+    font-weight: 400;
+    font-size: 45px;
   }
   
   .header-text {

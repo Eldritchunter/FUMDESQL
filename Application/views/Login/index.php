@@ -11,8 +11,10 @@
 <body>
     <section class="container">
         <div class="fundoConsole">
-            <h2 class="Titulo">FUMDESQL</h2>
-            <h1 class="Subtitulo">Controle de Bolsistas FUMDES</h1>
+            <header class="header">
+                <h1 class="Titulo">FUMDESQL</h1>
+                <h2 class="Subtitulo">CONTROLE DE BOLSISTAS FUMDES</h2>
+            </header>
             <form class="login-section" action="/login/login" method="POST">
                 <div>
                     <label for="email">E-mail</label>
@@ -22,8 +24,9 @@
                     <label for="senha-label">Senha</label>
                     <input class="input-box" type="password" name="senha">
                 </div>
-                <input class="forgot-box" type="submit" value="Esqueceu a senha?">
-                <input class="button" type="submit" value="Entrar">
+                <input class="forgot" type="submit" value="Esqueceu a senha?">
+                <br>
+                <input class="entrar" type="submit" value="Entrar">
                 <p class="mini-text">ou</p>
                 <p class="mini-text"><a href="/cadastro/tipo">Registre-se aqui</a></p>
             </form>
