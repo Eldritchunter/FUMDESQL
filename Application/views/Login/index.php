@@ -15,20 +15,25 @@
                 <h1 class="Titulo">FUMDESQL</h1>
                 <h2 class="Subtitulo">CONTROLE DE BOLSISTAS FUMDES</h2>
             </header>
+            <hr class="line">
             <form class="login-section" action="/login/login" method="POST">
                 <div>
-                    <label for="email">E-mail</label>
+                    <label for="email">LOGIN</label>
                     <input class="input-box" type="text" name="email">
                 </div>
                 <div>
-                    <label for="senha-label">Senha</label>
+                    <label for="senha-label">SENHA</label>
                     <input class="input-box" type="password" name="senha">
                 </div>
-                <input class="forgot" type="submit" value="Esqueceu a senha?">
-                <br>
-                <input class="entrar" type="submit" value="Entrar">
-                <p class="mini-text">ou</p>
-                <p class="mini-text"><a href="/cadastro/tipo">Registre-se aqui</a></p>
+                <div>
+                    <input class="forgot" type="submit" value="Esqueceu a senha?">
+                    <br><br>
+                    <input class="entrar" type="submit" value="Entrar">
+                    <br><br>
+                    <p class="register">Não possui login?</p>
+                    <p class="register"><a href="/cadastro/tipo">Registre-se aqui.</a></p>
+                </div>
+                <hr class="lineFooter">
             </form>
         </div>
     </section>
