@@ -7,12 +7,12 @@ class Consulta extends Controller
     // Consulta os motoristas
     public function motoristas()
     {
-        $this->verification();
-        if($this->permission){
+        $this->verification(); //verificação de login
+        if($this->permission){ // if true = acessa
             $id = $_SESSION['ID'];
             $conn = $this->model('consulta');
             $data = $conn::listMotoristas($id);
-            $this->view('consulta/driver', ['motoristas' => $data]);
+            $this->view('consulta/driver', ['motoristas' => $data]); // 'local', 'define o nome do array extraído do banco'
         }
     }
 

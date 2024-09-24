@@ -51,6 +51,7 @@ class Login
         $result = $conn->executeQuery("SELECT * FROM tb_motorista WHERE email_motorista = :EMAIL && senha_motorista = SHA1(:SENHA)",
                                 array(':EMAIL' => $email, ':SENHA' => $senha));
         return $result->fetchAll(PDO::FETCH_ASSOC);
+        // return $result->rowCount >> validar inserções/updates
     }
 }
 
