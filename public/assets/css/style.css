@@ -16,9 +16,9 @@
     background-color: white;
   }
   
-  .fundoConsole {
-    width: 710px;
-    height: 912px;
+  .Console {
+    width: 800px;
+    height: 900px;
     position: absolute;
     top: 56px;
     left: 32px;

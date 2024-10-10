@@ -10,7 +10,7 @@
 
 <body>
     <section class="container">
-        <div class="fundoConsole">
+        <div class="Console">
             <header class="header">
                 <h1 class="Titulo">FUMDESQL</h1>
                 <h2 class="Subtitulo">CONTROLE DE BOLSISTAS FUMDES</h2>
