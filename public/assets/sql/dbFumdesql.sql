@@ -20,7 +20,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema dbfumdesql
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `dbfumdesql` DEFAULT CHARACTER SET utf8 ;
-USE `dbfumdesql` ;
+USE `dbfumdesql`;
 
 -- -----------------------------------------------------
 -- Table `dbfumdesql`.`tbUsuario`
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `dbfumdesql`.`tbUsuario` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-
+-- INSERT INTO tbUsuario(nome,email,senha, nivelPermissao) VALUES ("admin","testeadmin@teste.com",SHA1("12345678"), 1);
 -- -----------------------------------------------------
 -- Table `dbfumdesql`.`tbAluno`
 -- -----------------------------------------------------

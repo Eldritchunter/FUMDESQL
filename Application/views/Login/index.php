@@ -30,8 +30,6 @@
                     <br><br>
                     <input class="entrar" type="submit" value="Entrar">
                     <br><br>
-                    <p class="register">Não possui login?</p>
-                    <p class="register"><a href="/cadastro/tipo">Registre-se aqui.</a></p>
                 </div>
                 <hr class="lineFooter">
             </form>

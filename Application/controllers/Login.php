@@ -19,60 +19,45 @@ class Login extends Controller // 'parâmetro/função'
         $senha = $_POST['senha'];
 
         $conn = $this->model('login');
-        $data = $conn::findNivelUser($email, $senha);
+        $data = $conn::findNivel($email, $senha);
 
-        if(!empty($data))
-        {
+        if (!empty($data)) {
             session_start();
             // consulta o nivel de acesso
-            foreach($data as $user){
+            foreach ($data as $user) {
                 $_SESSION['nivel'] = $user['nivel_usuario'];
             }
-            
+
             // 1 - Administrador
             // 2 - Estudante
-            switch($_SESSION['nivel'])
-            {
+            switch ($_SESSION['nivel']) {
                 case 1:
-                    $empresa = $conn::findEmpresa($email, $senha);
-                    foreach($empresa as $aux){
-                        $_SESSION['ID'] = $aux['id_empresa'];
-                        $_SESSION['EMP'] = $aux['nome_empresa']; //administrador
+                    $admin = $conn::findAdmin($email, $senha);
+                    foreach ($admin as $aux) {
+                        $_SESSION['ID'] = $aux['idUsuario'];
+                        $_SESSION['NOME'] = $aux['nome']; //administrador
                     }
-                    header("Location: /home/empresa");
+                    header("Location: /home/admin");
                     break;
                 case 2:
-                    $passageiro = $conn::findPassageiro($email, $senha); //findEstudante
-                    $empresa = $conn::findEmpresaPassageiro($email, $senha); //findInstituiçãoEstudante
-                    foreach($passageiro as $aux){
-                        $_SESSION['ID'] = $aux['id_aluno'];
-                        $_SESSION['NOME'] = $aux['nome_aluno'];
+                    $aluno = $conn::findAluno($email, $senha); //findEstudante
+                    foreach ($aluno as $aux) {
+                        $_SESSION['ID'] = $aux['idUsuario'];
+                        $_SESSION['NOME'] = $aux['nome'];
                     }
-                    foreach($empresa as $auxi){
-                        $_SESSION['ID_EMP'] = $auxi['empresa_id'];
-                    }
-                    header("Location: /home/passageiro");
-                    break;
-                case 3:
-                    $motorista = $conn::findMotorista($email, $senha);
-                    foreach($motorista as $aux){
-                        $_SESSION['ID'] = $aux['id_motorista'];
-                        $_SESSION['NOME'] = $aux['nome_motorista'];
-                    }
-                    header("Location: /home/motorista");
+                    header("Location: /home/aluno");
                     break;
             }
         } else {
             $this->view('erro404');
         }
-
     }
 
     // Realiza o logout da conta e encerra a sessão
     public function logout()
     {
         $this->verification();
-        if($this->permission){
+        if ($this->permission) {
             session_destroy();
             $this->permission = false;
             echo "<script>window.location.href = '/login';</script>";
@@ -80,5 +65,3 @@ class Login extends Controller // 'parâmetro/função'
         $this->view('login/index');
     }
 }
-
-?>

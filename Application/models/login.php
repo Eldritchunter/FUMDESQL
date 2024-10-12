@@ -9,10 +9,10 @@ use PDO;
 class Login
 {
     // Consulta o nivel de acesso
-    public static function findNivelUser(string $email, string $senha)
+    public static function findNivel(string $email, string $senha)
     {
         $conn = new Database();
-        $result = $conn->executeQuery("SELECT nivel_usuario FROM tb_usuarios WHERE email_usuario = :EMAIL && senha_usuario = SHA1(:SENHA)",
+        $result = $conn->executeQuery("SELECT nivelPermissao FROM tbUsuario WHERE email = :EMAIL && senha = SHA1(:SENHA)",
                                 array(':EMAIL' => $email, ':SENHA' => $senha));
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
