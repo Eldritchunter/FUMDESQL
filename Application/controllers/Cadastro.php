@@ -5,39 +5,24 @@ use Application\core\Controller;
 
 class Cadastro extends Controller
 {
-    public function tipo()
+    public function admin()
     {
-        $this->view('cadastro/type');
+        $this->view('cadastro/admin');
     }
 
-    public function empresa()
+    public function aluno()
     {
-        $this->view('cadastro/enterprise');
+        $this->view('cadastro/aluno');
     }
 
-    public function motorista()
+    public function horas()
     {
-        $this->view('cadastro/driver');
+        $this->view('cadastro/horas');
     }
 
-    public function ponto()
+    public function instituicao()
     {
-        $this->view('cadastro/point');
-    }
-
-    public function veiculo()
-    {
-        $this->view('cadastro/vehicle');
-    }
-
-    public function passageiro()
-    {
-        $this->view('cadastro/passenger');
-    }
-
-    public function infoPassageiro()
-    {
-        $this->view('cadastro/passenger-enterprise');
+        $this->view('cadastro/instituicao');
     }
 }
 
