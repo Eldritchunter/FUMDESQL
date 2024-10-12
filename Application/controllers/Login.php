@@ -25,14 +25,14 @@ class Login extends Controller // 'parâmetro/função'
             session_start();
             // consulta o nivel de acesso
             foreach ($data as $user) {
-                $_SESSION['nivel'] = $user['nivel_usuario'];
+                $_SESSION['nivel'] = $user['nivelPermissao'];
             }
 
             // 1 - Administrador
             // 2 - Estudante
             switch ($_SESSION['nivel']) {
                 case 1:
-                    $admin = $conn::findAdmin($email, $senha);
+                    $admin = $conn::findUser($email, $senha);
                     foreach ($admin as $aux) {
                         $_SESSION['ID'] = $aux['idUsuario'];
                         $_SESSION['NOME'] = $aux['nome']; //administrador
@@ -40,7 +40,7 @@ class Login extends Controller // 'parâmetro/função'
                     header("Location: /home/admin");
                     break;
                 case 2:
-                    $aluno = $conn::findAluno($email, $senha); //findEstudante
+                    $aluno = $conn::findUser($email, $senha); //findEstudante
                     foreach ($aluno as $aux) {
                         $_SESSION['ID'] = $aux['idUsuario'];
                         $_SESSION['NOME'] = $aux['nome'];

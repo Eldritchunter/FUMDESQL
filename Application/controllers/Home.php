@@ -6,21 +6,18 @@ use Application\core\Controller;
 class Home extends Controller
 {
     // Encaminha as informações e o usuário para a home da empresa
-    public function empresa()
+    public function admin()
     {
         $this->verification();
         if($this->permission){
-            $id = $_SESSION['ID'];
-            $conn = $this->model('home');
-            $viagens = $conn::listViagens($id);
-            $this->view('home/enterprise', ['viagens' => $viagens]);
+            $this->view('home/admin');
         } else {
             $this->view('erro404');
         }
     }
 
     // Encaminha as informações e o usuário para a home do passageiro
-    public function passageiro()
+    public function aluno()
     {
         $this->verification();
         if($this->permission){
