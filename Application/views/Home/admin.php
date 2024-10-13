@@ -10,8 +10,12 @@
 
 <body>
     <section class="container">
-        <div class="Console">
-            <p>teste</p>
+        <div class="innerConsole">
+            <header>
+                <h1 class="Titulo">FUMDESQL</h1>
+                <h2 class="Subtitulo">CONTROLE DE BOLSISTAS FUMDES</h2>
+                <img src="public\assets\img\santa-catarina-flag.png" alt="Santa Catarina Flag" class="flag">
+            </header>
         </div>
     </section>
 </body>
