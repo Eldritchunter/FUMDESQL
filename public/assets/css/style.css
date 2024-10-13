@@ -12,14 +12,11 @@ body {
 .container {
   width: 1440px;
   height: 1024px;
-  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   background-color: white;
-}
-
-.container header {
-  text-align: center;
-  border-bottom: 2px solid #e0e0e0;
-  padding-bottom: 10px;
+  margin: 100px;
 }
 
 .Console {
@@ -31,19 +28,25 @@ body {
   background-color: #D9D9D9;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
-  margin: 100px;
+}
+
+.innerConsole header {
+  background-color: #D9D9D9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  margin: 0; /* Remove a margem para evitar que as divisões fiquem uma abaixo da outra */ 
 }
 
 .innerConsole {
-  width: 800px;
+  width: 45%; /* Reduz a largura para caber duas divisões lado a lado */
   height: 900px;
-  position: absolute;
+  position: relative;
   top: 56px;
   left: 32px;
   background-color: #D9D9D9;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
-  margin: 100px;
+  margin: 0; /* Remove a margem para evitar que as divisões fiquem uma abaixo da outra */
 }
 
 .login-section {
