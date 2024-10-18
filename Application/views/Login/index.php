@@ -34,6 +34,9 @@
                 <hr class="lineFooter">
             </form>
         </div>
+        <div>
+            <img class="ConsoleImg" src="public\assets\img\students.jpg" alt="estudantes">
+        </div>
     </section>
     <script src="public/assets/JS/script.js"></script>
 </body>

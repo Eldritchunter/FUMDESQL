@@ -27,7 +27,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   background-color: white;
-  margin: 150px;
+  margin: 100px;
 }
 
 .Console {
@@ -43,7 +43,7 @@ body {
 
 .innerConsole {
   width: 45%; /* Reduz a largura para caber duas divisões lado a lado */
-  height: 940px;
+  height: 900px;
   position: relative;
   top: 56px;
   left: 32px;
@@ -56,13 +56,12 @@ body {
 /*LISTAGEM DE ALUNOS ABAIXO*/
 
 .screenList {
-  margin: 20px;
-  height: 900px; /* Altura fixa para a listagem */
+  width: 100%;
+  height: 400px; /* Altura fixa para a listagem */
   overflow-y: auto; /* Ativa a rolagem vertical */
   background-color: #f0f0f0;
-  padding: 20px;
-  border: #555;
-  border-radius: 30px;
+  padding: 15px;
+  border-radius: 10px;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
 

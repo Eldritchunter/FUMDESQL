@@ -19,6 +19,7 @@ date_default_timezone_set('America/Bahia');
             <h3 class="boas-vindas">Olá, <?php echo $_SESSION['NOME'] ?></h3>
             <img src="public\assets\img\santa-catarina-flag.png" alt="Santa Catarina Flag" class="flag">
         </header>
+        <br>
         <div class="innerConsole"> <!-- listagem de alunos -->
             <div class="screenList">
                 <ul class="studentList">
