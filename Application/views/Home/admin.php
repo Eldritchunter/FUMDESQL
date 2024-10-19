@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php
+
 date_default_timezone_set('America/Bahia');
+
 ?>
 
 <head>
@@ -14,59 +16,80 @@ date_default_timezone_set('America/Bahia');
 <body>
     <section class="container">
         <header> <!-- header da página admin -->
-            <h1 class="Titulo">FUMDESQL</h1>
-            <h2 class="Subtitulo">CONTROLE DE BOLSISTAS FUMDES</h2>
-            <h3 class="boas-vindas">Olá, <?php echo $_SESSION['NOME'] ?></h3>
-            <img src="public\assets\img\santa-catarina-flag.png" alt="Santa Catarina Flag" class="flag">
+            <div>
+                <h1 class="Titulo">FUMDESQL</h1>
+                <h2 class="Subtitulo">CONTROLE DE BOLSISTAS FUMDES</h2>
+                <br>
+                <h3 class="boas-vindas">Olá, <?php echo $_SESSION['NOME'] ?></h3>
+            </div>
+            <div>
+                <img src="../../../public/assets/img/santa-catarina-flag.png" alt="Santa Catarina Flag" class="flag">
+            </div>
         </header>
         <br>
         <div class="innerConsole"> <!-- listagem de alunos -->
             <div class="screenList">
                 <ul class="studentList">
-                    <li class="studentItem">Aluno 1</li>
-                    <li class="studentItem">Aluno 2</li>
-                    <li class="studentItem">Aluno 3</li>
-                    <li class="studentItem">Aluno 4</li>
-                    <li class="studentItem">Aluno 5</li>
-                    <li class="studentItem">Aluno 6</li>
-                    <li class="studentItem">Aluno 7</li>
-                    <li class="studentItem">Aluno 8</li>
-                    <li class="studentItem">Aluno 9</li>
-                    <li class="studentItem">Aluno 10</li>
-                    <!-- Mais itens podem ser adicionados aqui -->
+                    <?php foreach ($data['alunos'] as $aluno) {
+
+                    ?>
+                        <li onclick="mostraInfo(<?php echo $aluno['idAluno'] ?>)" class="studentItem">
+                            <?php echo $aluno['nomeAluno'] ?>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
         <div class="innerConsole"> <!-- detalhamento dos alunos-->
-            <div class="innerConsole">
+            <div>
                 <div class="screenDetail">
                     <form class="studentDetailForm">
-                        <h3>Detalhes do Aluno</h3>
+                        <h1>Detalhes do Aluno</h1>
                         <div class="formGroup">
                             <label for="studentName">Nome:</label>
-                            <input type="text" id="studentName" name="studentName" readonly>
+                            <p id="studentName" name="studentName"></p>
                         </div>
                         <div class="formGroup">
                             <label for="studentId">Matrícula:</label>
-                            <input type="text" id="studentId" name="studentId" readonly>
+                            <p id="studentId" name="studentId"></p>
                         </div>
                         <div class="formGroup">
-                            <label for="studentCourse">Curso:</label>
-                            <input type="text" id="studentCourse" name="studentCourse" readonly>
+                            <label for="studentCPF">CPF:</label>
+                            <p id="studentCPF" name="studentCPF"></p>
+                        </div>
+                        <div class="formGroup">
+                            <label for="studentCPF">Fase:</label>
+                            <p id="studentFase" name="studentFase"></p>
                         </div>
                         <div class="formGroup">
                             <label for="studentEmail">E-mail:</label>
-                            <input type="email" id="studentEmail" name="studentEmail" readonly>
+                            <p id="studentEmail" name="studentEmail"></p>
                         </div>
                         <div class="formGroup">
                             <label for="studentPhone">Telefone:</label>
-                            <input type="tel" id="studentPhone" name="studentPhone" readonly>
+                            <p id="studentPhone" name="studentPhone"></p>
                         </div>
                     </form>
                 </div>
             </div>
 
     </section>
+    <script>
+        function mostraInfo(idAluno) {
+            var json = JSON.parse('<?= json_encode($data['alunos'], JSON_UNESCAPED_LINE_TERMINATORS) ?>');
+            console.log(json);
+            json.forEach((aluno) => {
+                if (aluno.idAluno == idAluno) {
+                    document.getElementById('studentName').innerHTML = aluno.nomeAluno
+                    document.getElementById('studentId').innerHTML = aluno.matriculaAluno
+                    document.getElementById('studentCPF').innerHTML = aluno.cpf
+                    document.getElementById('studentFase').innerHTML = aluno.faseAtual
+                    document.getElementById('studentEmail').innerHTML = aluno.email
+                    document.getElementById('studentPhone').innerHTML = aluno.telefone
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

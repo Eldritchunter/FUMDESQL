@@ -36,6 +36,9 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 -- INSERT INTO tbUsuario(nome,email,senha, nivelPermissao) VALUES ("admin","testeadmin@teste.com",SHA1("12345678"), 1);
+
+-- drop table dbfumdesql.tbAluno;
+
 -- -----------------------------------------------------
 -- Table `dbfumdesql`.`tbAluno`
 -- -----------------------------------------------------

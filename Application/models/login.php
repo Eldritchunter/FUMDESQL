@@ -21,7 +21,7 @@ class Login
     public static function findUser(string $email, string $senha)
     {
         $conn = new Database();
-        $result = $conn->executeQuery("SELECT idUsuario FROM tbUsuario  WHERE email = :EMAIL && senha = SHA1(:SENHA)",
+        $result = $conn->executeQuery("SELECT * FROM tbUsuario  WHERE email = :EMAIL && senha = SHA1(:SENHA)",
                                 array(':EMAIL' => $email, ':SENHA' => $senha));
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }

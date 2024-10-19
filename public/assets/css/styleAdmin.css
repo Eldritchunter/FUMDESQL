@@ -9,10 +9,18 @@ body {
   background-color: white;
 }
 
+.flag {
+  border-radius: 30px;
+}
+
 .container header {
   width: 1440px;
   height: 150px;
   position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   top: 50px;
   background-color: #D9D9D9;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -90,11 +98,13 @@ body {
 /*DETALHAMENTO DOS ALUNOS*/
 
 .screenDetail {
-  width: 100%;
-  height: 400px; /* Altura ajustável conforme necessário */
+  margin: 20px;
+  height: 900px; /* Altura fixa para a listagem */
+  overflow-y: auto; /* Ativa a rolagem vertical */
   background-color: #f0f0f0;
   padding: 20px;
-  border-radius: 10px;
+  border: #555;
+  border-radius: 30px;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
 

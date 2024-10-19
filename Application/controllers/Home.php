@@ -10,10 +10,13 @@ class Home extends Controller
     {
         $this->verification();
         if($this->permission){
-            $this->view('home/admin');
+            $conn = $this->model('home');
+            $alunos = $conn::listAlunos();
+            $this->view('home/admin',["alunos" => $alunos]);
         } else {
             $this->view('erro404');
         }
+
     }
 
     // public function aluno()

@@ -9,10 +9,10 @@ use PDO;
 class Home 
 {
     // Lista as viagens do dia para a empresa
-    public static function listViagens(string $idEmpresa)
+    public static function listAlunos()
     {
         $conn = new Database();
-        $result = $conn->executeQuery("SELECT * FROM tb_viagem WHERE dataViagem_viagem = CURDATE() && (empresa_id = :ID && status_viagem = '1')", array(':ID' => $idEmpresa));
+        $result = $conn->executeQuery("SELECT * FROM tbAluno ORDER BY nomeAluno");
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
