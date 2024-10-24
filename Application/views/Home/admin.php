@@ -39,7 +39,9 @@ date_default_timezone_set('America/Bahia');
                     <?php } ?>
                 </ul>
             </div>
+            <a href="/cadastro/novoAluno"><button class="registraAluno" type="button">Registrar</button></a>
         </div>
+
         <div class="innerConsole"> <!-- detalhamento dos alunos-->
             <div>
                 <div class="screenDetail">
@@ -69,10 +71,11 @@ date_default_timezone_set('America/Bahia');
                             <label for="studentPhone">Telefone:</label>
                             <p id="studentPhone" name="studentPhone"></p>
                         </div>
+                        <a id="btn-inserir"><button class="deletaAluno" type="button">Inserir Documento</button></a>
                     </form>
                 </div>
+                <a id="btn-deletar"><button class="deletaAluno" type="button">Deletar</button></a>
             </div>
-
     </section>
     <script>
         function mostraInfo(idAluno) {
@@ -86,6 +89,8 @@ date_default_timezone_set('America/Bahia');
                     document.getElementById('studentFase').innerHTML = aluno.faseAtual
                     document.getElementById('studentEmail').innerHTML = aluno.email
                     document.getElementById('studentPhone').innerHTML = aluno.telefone
+                    document.getElementById('btn-deletar').setAttribute("href", "/cadastro/deletarAluno/" + aluno.idAluno);
+                    document.getElementById('btn-inserir').setAttribute("href", "/cadastro/inserirDoc/" + aluno.idAluno);
                 }
             })
         }

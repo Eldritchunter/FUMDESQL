@@ -24,6 +24,21 @@ class Cadastro extends Controller
     {
         $this->view('cadastro/instituicao');
     }
+
+    public function novoAluno()
+    {
+        $this->view('cadastro/novoAluno');
+    }
+
+    public function inserirDoc($id){
+        $this->view('cadastro/doc', ['id' => $id]);
+    }
+
+    public function deletarAluno($id){
+        $conn = $this->model('cadastrar');
+        $delete = $conn::deleteAluno($id);
+        header("Location: /home/admin");
+    }
 }
 
 ?>

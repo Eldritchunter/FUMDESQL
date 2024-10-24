@@ -1,10 +1,8 @@
-* {
+
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
   font-family: 'Montserrat', sans-serif;
   background-color: white;
 }
@@ -143,4 +141,16 @@ body {
 
 .formGroup input[readonly] {
   background-color: #e9ecef;
+}
+
+.registraAluno,
+.deletaAluno {
+  font-size: 35px;
+  width: 280px;
+  height: 50px;
+  color: white;
+  background-color: hsl(12, 96%, 74%);
+  border: 4px solid #ED6262;
+  border-radius: 28px;
+  font-weight: 700;
 }

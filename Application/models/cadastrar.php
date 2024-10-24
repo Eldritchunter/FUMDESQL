@@ -41,14 +41,11 @@ class Cadastrar
         return $result->rowCount();
     }
 
-    // Insere as horas.
-    public static function insertPendencia(string $semestre, string $ano, string $quantidadePendente, string $idAluno)
-    {
+    public static function deleteAluno(string $id){
         $conn = new Database();
-        $result = $conn->executeQuery(
-            "INSERT INTO tbHoraspendentes(semestre, ano, quantidadePendente, aluno_idAluno) VALUES (:SEM, :ANO, :QTD, :ID)",
-            array(':SEM' => $semestre, ':ANO' => $ano, ':QTD' => $quantidadePendente, ':ID' => $idAluno)
-        );
+        $result = $conn->executeQuery("DELETE FROM tbAluno WHERE idAluno = :ID", array(':ID' => $id));
+        $result = $conn->executeQuery("DELETE FROM tbUsuario WHERE idUsuario = :ID", array(':ID' => $id));
         return $result->rowCount();
     }
+
 }
