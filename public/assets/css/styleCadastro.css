@@ -86,6 +86,29 @@ body {
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
+/*CUSTOMIZAÇÃO DA BARRA DE ROLAGEM*/
+
+.screenDetail::-webkit-scrollbar {
+  width: 15px; /* Largura da barra de rolagem */
+}
+
+.screenDetail::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Cor e estilo do polegar da barra de rolagem */
+.screenDetail::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+/* Cor do polegar ao passar o mouse por cima */
+.screenDetail::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/**/
+
 .studentDetailForm {
   display: flex;
   flex-direction: column;
