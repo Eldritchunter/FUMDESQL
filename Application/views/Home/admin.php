@@ -16,10 +16,9 @@ date_default_timezone_set('America/Bahia');
 <body>
     <section class="container">
         <header> <!-- header da página admin -->
-            <div>
+            <div class="welcome">
                 <h1 class="Titulo">FUMDESQL</h1>
                 <h2 class="Subtitulo">CONTROLE DE BOLSISTAS FUMDES</h2>
-                <br>
                 <h3 class="boas-vindas">Olá, <?php echo $_SESSION['NOME'] ?></h3>
             </div>
             <div>
@@ -29,6 +28,7 @@ date_default_timezone_set('America/Bahia');
         <br>
         <div class="innerConsole"> <!-- listagem de alunos -->
             <div class="screenList">
+                <h1>Listagem de Alunos</h1>
                 <ul class="studentList">
                     <?php foreach ($data['alunos'] as $aluno) {
 
@@ -39,7 +39,7 @@ date_default_timezone_set('America/Bahia');
                     <?php } ?>
                 </ul>
             </div>
-            <a href="/cadastro/novoAluno"><button class="registraAluno" type="button">Registrar</button></a>
+            <a href="/cadastro/novoAluno"><button class="registraAluno" type="button">Registrar aluno</button></a>
         </div>
 
         <div class="innerConsole"> <!-- detalhamento dos alunos-->
@@ -71,10 +71,10 @@ date_default_timezone_set('America/Bahia');
                             <label for="studentPhone">Telefone:</label>
                             <p id="studentPhone" name="studentPhone"></p>
                         </div>
-                        <a id="btn-inserir"><button class="deletaAluno" type="button">Inserir Documento</button></a>
+                        <a id="btn-inserir"><button class="insereDoc" type="button">Upload</button></a>
                     </form>
                 </div>
-                <a id="btn-deletar"><button class="deletaAluno" type="button">Deletar</button></a>
+                <a id="btn-deletar"><button class="deletaAluno" type="button">Deletar Aluno</button></a>
             </div>
     </section>
     <script>

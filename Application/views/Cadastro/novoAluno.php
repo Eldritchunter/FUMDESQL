@@ -14,9 +14,9 @@ date_default_timezone_set('America/Bahia');
 </head>
 
 <body>
-    <section class="containerNew">
+    <section class="container">
         <header> <!-- header da página admin -->
-            <div>
+            <div class="welcome">
                 <h1 class="Titulo">FUMDESQL</h1>
                 <h2 class="Subtitulo">CONTROLE DE BOLSISTAS FUMDES</h2>
                 <h3 class="boas-vindas">Olá, <?php echo $_SESSION['NOME'] ?></h3>
@@ -25,10 +25,10 @@ date_default_timezone_set('America/Bahia');
                 <img src="../../../public/assets/img/santa-catarina-flag.png" alt="Santa Catarina Flag" class="flag">
             </div>
         </header>
-        <div>
+        <div class="innerConsole">
             <div class="screenDetail">
                 <h2>Cadastro de Aluno</h2>
-                <form action="inserirAluno.php" method="POST">
+                <form class="studentDetailForm" action="inserirAluno.php" method="POST">
                     <label for="nomeAluno">Nome do Aluno:</label>
                     <input class="input-box" type="text" id="nomeAluno" name="nomeAluno" required><br>
 
@@ -56,7 +56,7 @@ date_default_timezone_set('America/Bahia');
                     <label for="senha">Senha:</label>
                     <input class="input-box" type="password" id="senha" name="senha" required><br>
             </div>
-            <a href="btn-inserir"><button type="button"></button></a>
+            <a href=""><button class="registraAluno" type="button">Insere aluno</button></a>
         </div>
     </section>
     <script>
