@@ -63,7 +63,7 @@ body {
 
 .screenList {
   margin: 20px;
-  height: 900px; /* Altura fixa para a listagem */
+  height: 800px;
   overflow-y: auto; /* Ativa a rolagem vertical */
   background-color: #f0f0f0;
   padding: 20px;
@@ -72,6 +72,28 @@ body {
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
+/*CUSTOMIZAÇÃO DA BARRA DE ROLAGEM*/
+
+.screenList::-webkit-scrollbar {
+  width: 15px; /* Largura da barra de rolagem */
+}
+
+.screenList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Cor e estilo do polegar da barra de rolagem */
+.screenList::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+/* Cor do polegar ao passar o mouse por cima */
+.screenList::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/**/
 
 .studentList {
   list-style-type: none; /* Remove os marcadores de lista padrão */
@@ -97,7 +119,7 @@ body {
 
 .screenDetail {
   margin: 20px;
-  height: 900px; /* Altura fixa para a listagem */
+  height: 800px;
   overflow-y: auto; /* Ativa a rolagem vertical */
   background-color: #f0f0f0;
   padding: 20px;
