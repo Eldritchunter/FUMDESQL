@@ -20,12 +20,12 @@ class Cadastrar
     }
 
     // Insere o Aluno registrado.
-    public static function insertAluno(string $nome, string $matricula, string $cpf, string $telefone, string $dataIngresso, string $instituicao, string $faseAtual, string $email)
+    public static function insertAluno(string $nome, string $matricula, string $cpf, string $telefone, string $dataIngresso, string $instituicao, string $faseAtual, string $email, string $senha)
     {
         $conn = new Database();
         $result = $conn->executeQuery(
             "INSERT INTO tbAluno(nomeAluno, matriculaAluno, cpf, telefone, dataIngresso, instituicao, faseAtual, email, idUsuario) VALUES (:NOME, :MATRICULA, :CPF, :TEL, :DAT, :INST, :FASE, :EMAIL, (SELECT idUsuario FROM tbUsuario WHERE email = :EMAIL))",
-            array(':NOME' => $nome, ':MATRICULA' => $matricula, ':CPF' => $cpf, ':TEL' => $telefone, ':DAT' => $dataIngresso, ':INST' => $instituicao, ':FASE' => $faseAtual, ':EMAIL' => $email)
+            array(':NOME' => $nome, ':MATRICULA' => $matricula, ':CPF' => $cpf, ':TEL' => $telefone, ':DAT' => $dataIngresso, ':INST' => $instituicao, ':FASE' => $faseAtual, ':EMAIL' => $email, ':SENHA' => $senha)
         );
         return $result->rowCount();
     }

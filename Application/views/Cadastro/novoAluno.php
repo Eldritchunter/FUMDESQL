@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php
-
-date_default_timezone_set('America/Bahia');
-
+// if ($_POST != "" && is_null($_POST)) {
+//     echo '<pre>';
+//     var_dump($_POST);
+//     die;
+// }
 ?>
 
 <head>
@@ -29,47 +31,37 @@ date_default_timezone_set('America/Bahia');
             <div class="screenDetail">
                 <h2>Cadastro de Aluno</h2>
                 <form class="studentDetailForm" action="inserirAluno.php" method="POST">
-                    <label for="nomeAluno">Nome do Aluno:</label>
+                    <label for="nomeAluno">Nome do Aluno:</label><br>
                     <input class="input-box" type="text" id="nomeAluno" name="nomeAluno" required><br>
 
-                    <label for="matriculaAluno">Matrícula:</label>
+                    <label for="matriculaAluno">Matrícula:</label><br>
                     <input class="input-box" type="number" id="matriculaAluno" name="matriculaAluno" required><br>
 
-                    <label for="cpf">CPF:</label>
+                    <label for="cpf">CPF:</label><br>
                     <input class="input-box" type="text" id="cpf" name="cpf" required><br>
 
-                    <label for="telefone">Telefone:</label>
+                    <label for="telefone">Telefone:</label><br>
                     <input class="input-box" type="text" id="telefone" name="telefone" required><br>
 
-                    <label for="dataIngresso">Data de Ingresso:</label>
+                    <label for="dataIngresso">Data de Ingresso:</label><br>
                     <input class="input-box" type="date" id="dataIngresso" name="dataIngresso" required><br>
 
-                    <label for="instituicao">Instituição:</label>
+                    <label for="instituicao">Instituição:</label><br>
                     <input class="input-box" type="text" id="instituicao" name="instituicao" required><br>
 
-                    <label for="faseAtual">Fase Atual:</label>
+                    <label for="faseAtual">Fase Atual:</label><br>
                     <input class="input-box" type="number" id="faseAtual" name="faseAtual" required><br>
 
-                    <label for="email">Email:</label>
+                    <label for="email">Email:</label><br>
                     <input class="input-box" type="email" id="email" name="email" required><br>
 
-                    <label for="senha">Senha:</label>
+                    <label for="senha">Senha:</label><br>
                     <input class="input-box" type="password" id="senha" name="senha" required><br>
+                    <button id="btn-inserir" class="registraAluno" type="submit">Insere aluno</button>
+                </form>
             </div>
-            <a href=""><button class="registraAluno" type="button">Insere aluno</button></a>
         </div>
     </section>
-    <script>
-        function mostraInfo(idAluno) {
-            var json = JSON.parse('<?= json_encode($data['alunos'], JSON_UNESCAPED_LINE_TERMINATORS) ?>');
-            console.log(json);
-            json.forEach((aluno) => {
-                if (aluno.idAluno == idAluno) {
-                    document.getElementById('btn-inserir').setAttribute("href", "/cadastro/novoAluno/");
-                }
-            })
-        }
-    </script>
 </body>
 
 </html>
