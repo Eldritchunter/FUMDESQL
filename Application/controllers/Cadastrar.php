@@ -9,22 +9,20 @@ class Cadastrar extends Controller
     // Cadastro do aluno
     public function aluno()
     {
-        $nome = $_POST['nome'];
-        $matricula = $_POST['matricula'];
+        $nome = $_POST['nomeAluno'];
+        $matricula = $_POST['matriculaAluno'];
         $cpf = $_POST['cpf'];
         $telefone = $_POST['telefone'];
-        $dataIngresso = $_POST['ingresso'];
+        $dataIngresso = $_POST['dataIngresso'];
         $instituicao = $_POST['instituicao'];
         $faseAtual = $_POST['faseAtual'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
         $conn = $this->model('cadastrar');
-        $insert = $conn::insertAluno($nome, $matricula, $cpf, $telefone, $dataIngresso, $instituicao, $faseAtual, $senha);
         $insertUser = $conn::insertUsuario($nome, $email, $senha, '2');
-        foreach ($insert as $id) {
-            $idAluno = $id['id_aluno'];
-        }
+        $insert = $conn::insertAluno($nome, $matricula, $cpf, $telefone, $dataIngresso, $instituicao, $faseAtual, $email, $senha);
+        header("location: /home/admin");
     }
 
     // Cadastro do veiculo

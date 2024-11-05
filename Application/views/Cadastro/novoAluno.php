@@ -30,7 +30,7 @@
         <div class="innerConsole">
             <div class="screenDetail">
                 <h2>Cadastro de Aluno</h2>
-                <form class="studentDetailForm" action="inserirAluno.php" method="POST">
+                <form class="studentDetailForm" action="/cadastrar/aluno" method="POST">
                     <label for="nomeAluno">Nome do Aluno:</label><br>
                     <input class="input-box" type="text" id="nomeAluno" name="nomeAluno" required><br>
 

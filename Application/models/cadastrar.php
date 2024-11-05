@@ -24,7 +24,7 @@ class Cadastrar
     {
         $conn = new Database();
         $result = $conn->executeQuery(
-            "INSERT INTO tbAluno(nomeAluno, matriculaAluno, cpf, telefone, dataIngresso, instituicao, faseAtual, email, idUsuario) VALUES (:NOME, :MATRICULA, :CPF, :TEL, :DAT, :INST, :FASE, :EMAIL, (SELECT idUsuario FROM tbUsuario WHERE email = :EMAIL))",
+            "INSERT INTO tbAluno(nomeAluno, matriculaAluno, cpf, telefone, dataIngresso, instituicao, faseAtual, email, idUsuario) VALUES (:NOME, :MATRICULA, :CPF, :TEL, :DAT, :INST, :FASE, :EMAIL, (SELECT idUsuario FROM tbUsuario WHERE email = :EMAIL AND senha = SHA1(:SENHA)))",
             array(':NOME' => $nome, ':MATRICULA' => $matricula, ':CPF' => $cpf, ':TEL' => $telefone, ':DAT' => $dataIngresso, ':INST' => $instituicao, ':FASE' => $faseAtual, ':EMAIL' => $email, ':SENHA' => $senha)
         );
         return $result->rowCount();
