@@ -30,8 +30,8 @@ class Cadastro extends Controller
         $this->view('cadastro/novoAluno');
     }
 
-    public function inserirDoc($id){
-        $this->view('cadastro/doc', ['id' => $id]);
+    public function novoDocumento($id) {
+        $this->view('cadastro/novoDocumento',['id' => $id]);
     }
 
     public function deletarAluno($id){

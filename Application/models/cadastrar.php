@@ -31,12 +31,12 @@ class Cadastrar
     }
 
     // Insere o documento do aluno.
-    public static function insertDocumento(string  $idAluno, string $caminhoDoc, string $dataDoc, string $horasDoc)
+    public static function insertDocumento(string  $idAluno, string $caminhoDoc, string $dataDoc, string $horasTrabalhadas)
     {
         $conn = new Database();
         $result = $conn->executeQuery(
             "INSERT INTO tbDocumentos(aluno_idAluno, caminhoDocumento, dataDocumento, horasDocumento) VALUES (:ID, :CAMINHO, :DATADOC, :HORADOC)",
-            array(':ID' => $idAluno, ':CAMINHO' => $caminhoDoc, ':DATADOC' => $dataDoc, ':HORADOC' => $horasDoc)
+            array(':ID' => $idAluno, ':CAMINHO' => $caminhoDoc, ':DATADOC' => $dataDoc, ':HORADOC' => $horasTrabalhadas)
         );
         return $result->rowCount();
     }

@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 0;
@@ -75,39 +76,7 @@ body {
   margin: 0; /* Remove a margem para evitar que as divisões fiquem uma abaixo da outra */
 }
 
-.screenDetail {
-  margin: 20px;
-  height: 800px;
-  overflow-y: auto; /* Ativa a rolagem vertical */
-  background-color: #f0f0f0;
-  padding: 20px;
-  border: #555;
-  border-radius: 30px;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
-}
-
-/*CUSTOMIZAÇÃO DA BARRA DE ROLAGEM*/
-
-.screenDetail::-webkit-scrollbar {
-  width: 15px; /* Largura da barra de rolagem */
-}
-
-.screenDetail::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Cor e estilo do polegar da barra de rolagem */
-.screenDetail::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 6px;
-}
-
-/* Cor do polegar ao passar o mouse por cima */
-.screenDetail::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-/**/
+/*LISTAGEM DE ALUNOS ABAIXO*/
 
 .screenList {
   margin: 20px;
@@ -141,6 +110,41 @@ body {
   background: #555;
 }
 
+/**/
+
+.studentList {
+  list-style-type: none; /* Remove os marcadores de lista padrão */
+  padding: 0;
+  margin: 0;
+}
+
+.studentItem {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.studentItem:hover {
+  background-color: #e0e0e0; /* Muda a cor de fundo ao passar o mouse */
+}
+
+/*DETALHAMENTO DOS ALUNOS*/
+
+.screenDetail {
+  margin: 20px;
+  height: 800px;
+  overflow-y: auto; /* Ativa a rolagem vertical */
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: #555;
+  border-radius: 30px;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
 .studentDetailForm {
   display: flex;
   flex-direction: column;
@@ -150,6 +154,32 @@ body {
   margin-bottom: 20px;
   font-size: 1.5em;
   color: #333;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.formGroup input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 1em;
+  color: #333;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formGroup input[readonly] {
+  background-color: #e9ecef;
 }
 
 .registraAluno,

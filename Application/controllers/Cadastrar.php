@@ -25,45 +25,48 @@ class Cadastrar extends Controller
         header("location: /home/admin");
     }
 
-    // Cadastro do veiculo
-    public function veiculo()
+    public function documentoAdmin()
     {
-        $empresa = $_SESSION['ID'];
-        $modelo = $_POST['modelo'];
-        $placa = $_POST['placa'];
-        $marca = $_POST['marca'];
-        $situacao = $_POST['situacao'];
-        $lugares = $_POST['lugares'];
-        $status = $_POST['status'];
+        $idAluno = $_POST['idAluno'];
+        $dataDoc = $_POST['dataDoc'];
+        $horaInicial = $_POST['horaInicial'];
+        $horaFinal = $_POST['horaFinal'];
+
+        // Convertendo as strings para timestamps
+        $timestampInicial = strtotime($horaInicial);
+        $timestampFinal = strtotime($horaFinal);
+
+        // Calculando a diferença em segundos
+        $diferencaEmSegundos = $timestampFinal - $timestampInicial;
+
+        // Convertendo a diferença para horas, minutos e segundos
+        $horasTrabalhadas = date('H:i:s', $diferencaEmSegundos);
+
+        $dir = "D:/xampp/htdocs/FUMDESQL/public/assets/docs/";
+                $arquivo = $_FILES['docs'];
+                $data = str_replace("-", "", date('d-m-y'));
+
+                $arquivoNovo = $dir . $data . $arquivo["name"];
+
+                if (move_uploaded_file($arquivo["tmp_name"], $arquivoNovo)) {
+                    $arquivoNovo = $data . $arquivo["name"].".pdf";
+                } else {
+                    $arquivoNovo = "";
+                }
 
         $conn = $this->model('cadastrar');
-        $insert = $conn->insertVeiculo($empresa, $modelo, $placa, $marca, $situacao, $lugares, $status);
-
-        if ($insert > 0) {
-            header('Location: /consulta/veiculos');
-        } else {
-            $this->view('erro404');
-        }
+        $insertDocumento = $conn::insertDocumento( $idAluno, $arquivoNovo, $dataDoc , $horasTrabalhadas);
+        header("location: /home/admin");
     }
 
-    // Cadastro dos pontos
-    public function ponto()
+    public function documentoAluno()
     {
-        $empresa = $_SESSION['ID'];
-        $apelido = $_POST['apelido'];
-        $rua = $_POST['rua'];
-        $bairro = $_POST['bairro'];
-        $cidade = $_POST['cidade'];
-        $ponto = $_POST['ponto-ref'];
-        $hora = $_POST['hora'];
+        $dataDoc = $_POST['dataDoc'];
+        $horaInicial = $_POST['horaInicial'];
+        $horaFinal = $_POST['horaFinal'];
 
-        $conn = $this->model('cadastrar');
-        $insert = $conn::insertPonto($empresa, $apelido, $rua, $bairro, $cidade, $ponto, $hora);
-
-        if ($insert > 0) {
-            header('Location: /consulta/ponto');
-        } else {
-            $this->view('erro404');
-        }
+        $conn = $this->model('upload');
+        $insertDocumento = $conn::insertDocumento( $dataDoc , $horaInicial, $horaFinal);
+        header("location: /home/admin");
     }
 }

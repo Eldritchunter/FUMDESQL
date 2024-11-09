@@ -41,7 +41,6 @@ date_default_timezone_set('America/Bahia');
             </div>
             <a href="/cadastro/novoAluno"><button class="registraAluno" type="button">Registrar aluno</button></a>
         </div>
-
         <div class="innerConsole"> <!-- detalhamento dos alunos-->
             <div>
                 <div class="screenDetail">
@@ -90,7 +89,7 @@ date_default_timezone_set('America/Bahia');
                     document.getElementById('studentEmail').innerHTML = aluno.email
                     document.getElementById('studentPhone').innerHTML = aluno.telefone
                     document.getElementById('btn-deletar').setAttribute("href", "/cadastro/deletarAluno/" + aluno.idAluno);
-                    document.getElementById('btn-inserir').setAttribute("href", "/cadastro/inserirDoc/" + aluno.idAluno);
+                    document.getElementById('btn-inserir').setAttribute("href", "/cadastro/novoDocumento/" + aluno.idAluno);
                 }
             })
         }
