@@ -31,6 +31,7 @@ date_default_timezone_set('America/Bahia');
                 <form action="/cadastrar/documentoAdmin" enctype="multipart/form-data" method="POST" accept=".PDF">
                     <h1>Inserção de Documentos</h1>
                     <p>Inserção de Documentos da instituição.</p><br>
+                    <hr class="lineCadastro"><br>
                     <label for="nomeInstituicao">Nome da Instituição envolvida:</label><br>
                     <input class="input-box" type="text" id="nomeInstituicao" name="nomeInstituicao">
                     <p>Data e horário do início e fim da atividade:</p>
@@ -40,6 +41,7 @@ date_default_timezone_set('America/Bahia');
                     <input class="horaInicio" type="time" name="horaInicial">
                     <input class="horaFinal" type="time" name="horaFinal">
                     <br>
+                    <hr class="lineCadastro"><br>
                     <input type="file" class="insereDoc" name="docs">
                     <a id="btn-inserir"><button class="insereDoc" action="/cadastrar/documento" method="POST">Registrar</button></a>
                 </form>
