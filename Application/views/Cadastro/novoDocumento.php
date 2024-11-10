@@ -30,8 +30,10 @@ date_default_timezone_set('America/Bahia');
             <div class="screenList">
                 <form action="/cadastrar/documentoAdmin" enctype="multipart/form-data" method="POST" accept=".PDF">
                     <h1>Inserção de Documentos</h1>
-                    <h3>Inserção de Documentos da instituição.</h3>
-                    <h3>Data e horário do início e fim da atividade.</h3>
+                    <p>Inserção de Documentos da instituição.</p><br>
+                    <label for="nomeInstituicao">Nome da Instituição envolvida:</label><br>
+                    <input class="input-box" type="text" id="nomeInstituicao" name="nomeInstituicao">
+                    <p>Data e horário do início e fim da atividade:</p>
                     <input type="hidden" value= <?php echo $data['id'] 
                     ?> name="idAluno">
                     <input class="dataInicio" type="date" name="dataDoc">
@@ -42,7 +44,6 @@ date_default_timezone_set('America/Bahia');
                     <a id="btn-inserir"><button class="insereDoc" action="/cadastrar/documento" method="POST">Registrar</button></a>
                 </form>
             </div>
-            <a href="/cadastro/novoAluno"><button class="registraAluno" type="button">Registrar aluno</button></a>
         </div>
 
         <div class="innerConsole"> <!-- detalhamento dos alunos-->
@@ -76,7 +77,6 @@ date_default_timezone_set('America/Bahia');
                         </div>
                     </form>
                 </div>
-                <a id="btn-deletar"><button class="deletaAluno" type="button">Deletar Aluno</button></a>
             </div>
     </section>
     <script>
@@ -91,7 +91,6 @@ date_default_timezone_set('America/Bahia');
                     document.getElementById('studentFase').innerHTML = aluno.faseAtual
                     document.getElementById('studentEmail').innerHTML = aluno.email
                     document.getElementById('studentPhone').innerHTML = aluno.telefone
-                    document.getElementById('btn-deletar').setAttribute("href", "/cadastro/deletarAluno/" + aluno.idAluno);
                     document.getElementById('btn-inserir').setAttribute("href", "/cadastro/inserirDoc/" + aluno.idAluno);
                 }
             })
