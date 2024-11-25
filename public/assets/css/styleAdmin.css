@@ -76,6 +76,14 @@ body {
   margin: 0; /* Remove a margem para evitar que as divisões fiquem uma abaixo da outra */
 }
 
+.historicoInstituicoes {
+  overflow-y: auto; /* Ativa a rolagem vertical */
+  background-color: #f0f0f0;
+  order: #555;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 /*LISTAGEM DE ALUNOS ABAIXO*/
 
 .screenList {

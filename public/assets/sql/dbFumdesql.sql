@@ -72,6 +72,7 @@ CREATE TABLE IF NOT EXISTS `dbfumdesql`.`tbDocumentos` (
   `caminhoDocumento` VARCHAR(45) NOT NULL,
   `dataDocumento` DATETIME NOT NULL,
   `horasDocumento` INT NOT NULL,
+  `nomeInstituicao` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`idDocumentos`),
   CONSTRAINT `fk_documentos_aluno`
     FOREIGN KEY (`aluno_idAluno`)

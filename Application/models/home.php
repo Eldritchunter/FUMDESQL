@@ -6,35 +6,49 @@ namespace Application\models;
 use Application\core\Database;
 use PDO;
 
-class Home 
+class Home
 {
-    // Lista as viagens do dia para a empresa
+    // Lista os alunos para o administrador.
+    public static function listInstituicoes()
+    {
+        $conn = new Database();
+        $result = $conn->executeQuery("SELECT a.idAluno, d.nomeInstituicao FROM tbAluno AS a
+        LEFT JOIN (
+            SELECT * FROM (
+                SELECT 
+                    idDocumentos,
+                    aluno_idAluno,
+                    nomeInstituicao,
+                    dataDocumento,
+                    ROW_NUMBER() OVER (PARTITION BY aluno_idAluno ORDER BY dataDocumento DESC) AS ordem
+                FROM tbDocumentos
+            ) AS DocumentosFiltrados
+            WHERE ordem <= 3
+        ) AS d ON a.idAluno = d.aluno_idAluno
+        ORDER BY a.nomeAluno, d.dataDocumento DESC;");
+        return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public static function listAlunos()
     {
         $conn = new Database();
-        $result = $conn->executeQuery("SELECT * FROM tbAluno ORDER BY nomeAluno");
+        $result = $conn->executeQuery("SELECT * FROM tbAluno");
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Lista as viagens confirmadas do aluno
-    public static function listViagensConfirm(string $idAluno)
+    // Lista os destalhes pessoais do próprio aluno.
+    public static function ListAlunoLogado($idAluno)
     {
         $conn = new Database();
-        $result = $conn->executeQuery("SELECT idviagem FROM tb_pontoesperaaluno WHERE idaluno = :ID", array(':ID' => $idAluno));
-        return $result->fetchAll(PDO::FETCH_ASSOC);
+        $result = $conn->executeQuery("SELECT * FROM tbAluno WHERE idAluno = :idAluno", array(':idAluno' => $idAluno));
+        return $result->fetch(PDO::FETCH_ASSOC);
     }
 
-    // Lista as viagens do motorista do dia
-    public static function listViagemMot(string $idMot)
+    //
+    public static function lastIntituicoes(string $id)
     {
         $conn = new Database();
-        $result = $conn->executeQuery("SELECT * FROM tb_motorista AS m
-                                        JOIN tb_veiculosmotoristaviagem AS vmv ON vmv.id_motorista = m.id_motorista
-                                        JOIN tb_viagem AS v ON vmv.id_viagem = v.id_viagem
-                                        JOIN tb_veiculo AS veic ON vmv.id_veiculo - veic.id_veiculo
-                                        WHERE m.id_motorista = :ID && dataViagem_viagem = CURDATE()", array(':ID' => $idMot));
+        $result = $conn->executeQuery("SELECT * FROM tbdocumentos WHERE aluno_idAluno = :ID ORDER BY dataDocumento DESC LIMIT 3 ;", array(':ID' => $id));
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-
-?>

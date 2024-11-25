@@ -22,7 +22,7 @@ class Login extends Controller // 'parâmetro/função'
         $data = $conn::findNivel($email, $senha);
 
         if (!empty($data)) {
-            session_start();
+            if (!$_SESSION) session_start();
             // consulta o nivel de acesso
             foreach ($data as $user) {
                 $_SESSION['nivel'] = $user['nivelPermissao'];

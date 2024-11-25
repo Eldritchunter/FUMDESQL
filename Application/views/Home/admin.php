@@ -72,6 +72,12 @@ date_default_timezone_set('America/Bahia');
                         </div>
                         <a id="btn-inserir"><button class="insereDoc" type="button">Upload</button></a>
                     </form>
+                    <div>
+                    <h1>Histórico de instituições</h1>
+                    <ul class="historicoInstituicoes" id="historicoInstituicoes">
+                    
+                    </ul>
+                </div>
                 </div>
                 <a id="btn-deletar"><button class="deletaAluno" type="button">Deletar Aluno</button></a>
             </div>
@@ -79,7 +85,9 @@ date_default_timezone_set('America/Bahia');
     <script>
         function mostraInfo(idAluno) {
             var json = JSON.parse('<?= json_encode($data['alunos'], JSON_UNESCAPED_LINE_TERMINATORS) ?>');
-            console.log(json);
+            var jsonInst = JSON.parse('<?= json_encode($data['instituicoes'], JSON_UNESCAPED_LINE_TERMINATORS) ?>');
+
+            
             json.forEach((aluno) => {
                 if (aluno.idAluno == idAluno) {
                     document.getElementById('studentName').innerHTML = aluno.nomeAluno
@@ -88,6 +96,12 @@ date_default_timezone_set('America/Bahia');
                     document.getElementById('studentFase').innerHTML = aluno.faseAtual
                     document.getElementById('studentEmail').innerHTML = aluno.email
                     document.getElementById('studentPhone').innerHTML = aluno.telefone
+
+                    document.getElementById('historicoInstituicoes').innerHTML = ''
+                    jsonInst.filter(i => i.idAluno == idAluno).forEach(i => {
+                        document.getElementById('historicoInstituicoes').innerHTML += `<li>` + i.nomeInstituicao + `</li>`
+                    });
+
                     document.getElementById('btn-deletar').setAttribute("href", "/cadastro/deletarAluno/" + aluno.idAluno);
                     document.getElementById('btn-inserir').setAttribute("href", "/cadastro/novoDocumento/" + aluno.idAluno);
                 }

@@ -1,85 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php
-
 date_default_timezone_set('America/Bahia');
-
 ?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BussFeed | Home</title>
-    <link rel="stylesheet" href="../../../public/assets/css/styleAluno.css">
+    <title>BussFeed | Estudante</title>
+    <link rel="stylesheet" href="../../../public/assets/css/styleStudent.css">
 </head>
 
 <body>
     <section class="container">
-        <header> <!-- header da página admin -->
-            <div>
+        <header>
+            <div class="welcome">
                 <h1 class="Titulo">FUMDESQL</h1>
-                <h2 class="Subtitulo">CONTROLE DE BOLSISTAS FUMDES</h2>
-                <br>
-                <h3 class="boas-vindas">Olá, <?php echo $_SESSION['NOME'] ?></h3>
+                <h2 class="Subtitulo">SEU PERFIL</h2>
+                <h3 class="boas-vindas">Bem-vindo, <?php echo $_SESSION['NOME']; ?></h3>
             </div>
             <div>
                 <img src="../../../public/assets/img/santa-catarina-flag.png" alt="Santa Catarina Flag" class="flag">
             </div>
         </header>
         <br>
-        <div class="innerConsole"> <!-- detalhamento dos alunos-->
-            <div>
-                <div class="screenDetail">
-                    <form class="studentDetailForm">
-                        <h1>Detalhes do Aluno</h1>
-                        <div class="formGroup">
-                            <label for="studentName">Nome:</label>
-                            <p id="studentName" name="studentName"></p>
-                        </div>
-                        <div class="formGroup">
-                            <label for="studentId">Matrícula:</label>
-                            <p id="studentId" name="studentId"></p>
-                        </div>
-                        <div class="formGroup">
-                            <label for="studentCPF">CPF:</label>
-                            <p id="studentCPF" name="studentCPF"></p>
-                        </div>
-                        <div class="formGroup">
-                            <label for="studentCPF">Fase:</label>
-                            <p id="studentFase" name="studentFase"></p>
-                        </div>
-                        <div class="formGroup">
-                            <label for="studentEmail">E-mail:</label>
-                            <p id="studentEmail" name="studentEmail"></p>
-                        </div>
-                        <div class="formGroup">
-                            <label for="studentPhone">Telefone:</label>
-                            <p id="studentPhone" name="studentPhone"></p>
-                        </div>
-                        <a id="btn-inserir"><button class="deletaAluno" type="button">Inserir Documento</button></a>
-                    </form>
+        <div class="innerConsole">
+            <div class="screenDetail">
+                <form class="studentDetailForm">
+                    <h1>Suas Informações</h1>
+                    <div class="formGroup">
+                        <label for="studentName">Nome:</label>
+                        <p id="studentName"><?php echo $data['aluno']['nomeAluno']; ?></p>
+                    </div>
+                    <div class="formGroup">
+                        <label for="studentId">Matrícula:</label>
+                        <p id="studentId"><?php echo $data['aluno']['matriculaAluno']; ?></p>
+                    </div>
+                    <div class="formGroup">
+                        <label for="studentCPF">CPF:</label>
+                        <p id="studentCPF"><?php echo $data['aluno']['cpf']; ?></p>
+                    </div>
+                    <div class="formGroup">
+                        <label for="studentFase">Fase:</label>
+                        <p id="studentFase"><?php echo $data['aluno']['faseAtual']; ?></p>
+                    </div>
+                    <div class="formGroup">
+                        <label for="studentEmail">E-mail:</label>
+                        <p id="studentEmail"><?php echo $data['aluno']['email']; ?></p>
+                    </div>
+                    <div class="formGroup">
+                        <label for="studentPhone">Telefone:</label>
+                        <p id="studentPhone"><?php echo $data['aluno']['telefone']; ?></p>
+                    </div>
+                    <a id="btn-inserir" href="/cadastro/novoDocumento/<?php echo $_SESSION['ID'] ?>"><button class="insereDoc" type="button">Upload</button></a>
+                </form>
+                <div>
+                    <h1>Histórico de instituições</h1>
+                    <ul class="historicoInstituicoes">
+                        <?php foreach($data['instituicao'] as $inst) {?>
+
+                        <li><?php echo $inst['nomeInstituicao']?></li>
+
+                        <?php } ?>
+                    </ul>
                 </div>
-                <a id="btn-deletar"><button class="deletaAluno" type="button">Deletar</button></a>
             </div>
+        </div>
     </section>
-    <script>
-        function mostraInfo(idAluno) {
-            var json = JSON.parse('<?= json_encode($data['alunos'], JSON_UNESCAPED_LINE_TERMINATORS) ?>');
-            console.log(json);
-            json.forEach((aluno) => {
-                if (aluno.idAluno == idAluno) {
-                    document.getElementById('studentName').innerHTML = aluno.nomeAluno
-                    document.getElementById('studentId').innerHTML = aluno.matriculaAluno
-                    document.getElementById('studentCPF').innerHTML = aluno.cpf
-                    document.getElementById('studentFase').innerHTML = aluno.faseAtual
-                    document.getElementById('studentEmail').innerHTML = aluno.email
-                    document.getElementById('studentPhone').innerHTML = aluno.telefone
-                    document.getElementById('btn-deletar').setAttribute("href", "/cadastro/deletarAluno/" + aluno.idAluno);
-                    document.getElementById('btn-inserir').setAttribute("href", "/cadastro/novoDocumento/" + aluno.idAluno);
-                }
-            })
-        }
-    </script>
 </body>
 
 </html>

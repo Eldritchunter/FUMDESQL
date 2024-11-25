@@ -28,7 +28,7 @@ date_default_timezone_set('America/Bahia');
         <br>
         <div class="innerConsole"> <!-- listagem de alunos -->
             <div class="screenList">
-                <form action="/cadastrar/documentoAdmin" enctype="multipart/form-data" method="POST" accept=".PDF">
+                <form action="/cadastrar/documentoAluno" enctype="multipart/form-data" method="POST" accept=".PDF">
                     <h1>Inserção de Documentos</h1>
                     <p>Inserção de Documentos da instituição.</p><br>
                     <hr class="lineCadastro"><br>
@@ -43,7 +43,7 @@ date_default_timezone_set('America/Bahia');
                     <br>
                     <hr class="lineCadastro"><br>
                     <input type="file" class="insereDoc" name="docs">
-                    <a id="btn-inserir"><button class="insereDoc" action="/cadastrar/documento" method="POST">Registrar</button></a>
+                    <a id="btn-inserir"><button class="insereDoc">Registrar</button></a>
                 </form>
             </div>
         </div>
