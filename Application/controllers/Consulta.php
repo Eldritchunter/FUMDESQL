@@ -4,77 +4,25 @@ use Application\core\Controller;
 
 class Consulta extends Controller
 {
-    // Consulta os motoristas
-    public function motoristas()
-    {
-        $this->verification(); //verificação de login
-        if($this->permission){ // if true = acessa
-            $id = $_SESSION['ID'];
-            $conn = $this->model('consulta');
-            $data = $conn::listMotoristas($id);
-            $this->view('consulta/driver', ['motoristas' => $data]); // 'local', 'define o nome do array extraído do banco'
-        }
-    }
-
-    // Consulta os pontos
-    public function ponto()
+    public function aprovacao()
     {
         $this->verification();
-        if($this->permission){
-            $id = $_SESSION['ID'];
+        if($this->permission && $_SESSION['nivel'] == 1){
             $conn = $this->model('consulta');
-            $data = $conn::listPontos($id);
-            $this->view('consulta/point', ['pontos' => $data]);
+            $documentos = $conn::GetDocsPendentes();
+            $this->view('aprovaDocumento/aprovaDoc', ['documentos' => $documentos]);
         }
-    }
+    } 
 
-    // Consulta os veiculos
-    public function veiculos()
+    public function documento($id)
     {
         $this->verification();
-        if($this->permission){
-            $id = $_SESSION['ID'];
+        if($this->permission && $_SESSION['nivel'] == 1){
             $conn = $this->model('consulta');
-            $data = $conn::listVeiculos($id);
-            $this->view('consulta/vehicle', ['veiculos' => $data]);
+            $documento = $conn::GetDoc($id);
+            $this->view('aprovaDocumento/verDocumento', ['documento' => $documento]);
         }
-    }
-
-    // Consulta as viagens realizadas pela empresa
-    public function viagemEmpresa()
-    {
-        $this->verification();
-        if($this->permission){
-            $id = $_SESSION['ID'];
-            $conn = $this->model('consulta');
-            $data = $conn::listViagemEmp($id);
-            $this->view('consulta/viagemempresa', ['viagens' => $data]);
-        }
-    }
-
-    // Consulta as viagens realizadas pelo passageiro
-    public function viagemPassageiro()
-    {
-        $this->verification();
-        if($this->permission){
-            $id = $_SESSION['ID'];
-            $conn = $this->model('consulta');
-            $data = $conn::listViagemPas($id);
-            $this->view('consulta/viagempassageiro', ['viagens' => $data]);
-        }
-    }
-
-    // Consulta as viagens realizadas pelo motorista
-    public function viagemMotorista()
-    {
-        $this->verification();
-        if($this->permission){
-            $id = $_SESSION['ID'];
-            $conn = $this->model('consulta');
-            $data = $conn::listViagemPas($id);
-            $this->view('consulta/viagemmotorista', ['viagens' => $data]);
-        }
-    }
+    } 
 }
 
 ?>

@@ -50,7 +50,7 @@ class Cadastrar extends Controller
                 $arquivoNovo = $dir . $data . $arquivo["name"];
 
                 if (move_uploaded_file($arquivo["tmp_name"], $arquivoNovo)) {
-                    $arquivoNovo = $data . $arquivo["name"].".pdf";
+                    $arquivoNovo = $data . $arquivo["name"];
                 } else {
                     $arquivoNovo = "";
                 }
@@ -89,7 +89,7 @@ class Cadastrar extends Controller
                 $arquivoNovo = $dir . $data . $arquivo["name"];
 
                 if (move_uploaded_file($arquivo["tmp_name"], $arquivoNovo)) {
-                    $arquivoNovo = $data . $arquivo["name"].".pdf";
+                    $arquivoNovo = $data . $arquivo["name"];
                 } else {
                     $arquivoNovo = "";
                 }
@@ -102,5 +102,15 @@ class Cadastrar extends Controller
         } else {
             header("location: /home/admin");
         }
+    }
+
+    public function aprovar($id)
+    {
+        
+    }
+
+    public function recusar($id)
+    {
+        
     }
 }

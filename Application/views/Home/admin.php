@@ -27,6 +27,7 @@ date_default_timezone_set('America/Bahia');
         </header>
         <br>
         <div class="innerConsole"> <!-- listagem de alunos -->
+        <a href="/consulta/aprovacao"><button class="registraAluno" type="button">Aprovação de Documento</button></a>
             <div class="screenList">
                 <h1>Listagem de Alunos</h1>
                 <ul class="studentList">

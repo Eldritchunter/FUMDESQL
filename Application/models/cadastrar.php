@@ -41,6 +41,16 @@ class Cadastrar
         return $result->rowCount();
     }
 
+    public static function aprovaDocumento(string $idDoc)
+    {
+        $conn = new Database();
+        $result = $conn->executeQuery(
+            "UPDATE tbDocumentos SET statusDocumento = 1 WHERE idDocumentos = :ID",
+            array(':ID' => $idDoc)
+        );
+        return $result->rowCount();
+    }
+
     public static function deleteAluno(string $id){
         $conn = new Database();
         $result = $conn->executeQuery("DELETE FROM tbAluno WHERE idAluno = :ID", array(':ID' => $id));
