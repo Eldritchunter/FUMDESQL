@@ -29,18 +29,20 @@ date_default_timezone_set('America/Bahia');
         <div class="innerConsole"> <!-- listagem de alunos -->
             <div class="screenList">
                 <h1>Listagem de Documentos</h1>
+                <p>Documentos pendentes de aprovação.</p>
                 <ul class="studentList">
                     <?php foreach ($data['documentos'] as $documento) {
 
                     ?>
                         <li class="studentItem">
                             <p><?php echo $documento['nomeAluno'] . " - " . $documento['nomeInstituicao'] . " (Horas: " . $documento['horasDocumento'] . ")" ?></p>
-                            <a href="../../../public/assets/docs/<?php echo $documento['caminhoDocumento'] ?>" download><button>Baixar Documento</button></a>
-                            <a href="/cadastrar/aprovar/<?php echo $documento['idDocumentos'] ?>"><button>Aprovar</button></a>
-                            <a href="/cadastrar/recusar/<?php echo $documento['idDocumentos'] ?>"><button>Recusar</button></a>
+                            <a href="../../../public/assets/docs/<?php echo $documento['caminhoDocumento'] ?>" download><button class="respostaDoc">Baixar Documento</button></a>
+                            <a href="/cadastrar/aprovar/<?php echo $documento['idDocumentos'] ?>"><button class="respostaDoc">Aprovar</button></a>
+                            <a href="/cadastrar/recusar/<?php echo $documento['idDocumentos'] ?>"><button class="respostaDoc">Recusar</button></a>
                         </li>
                     <?php } ?>
                 </ul>
+                <hr class="line">
             </div>
 </body>
 

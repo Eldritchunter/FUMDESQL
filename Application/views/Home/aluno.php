@@ -8,7 +8,7 @@ date_default_timezone_set('America/Bahia');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BussFeed | Estudante</title>
-    <link rel="stylesheet" href="../../../public/assets/css/styleStudent.css">
+    <link rel="stylesheet" href="../../../public/assets/css/styleAluno.css">
 </head>
 
 <body>
