@@ -32,6 +32,7 @@ class Cadastrar extends Controller
         $nomeInstituicao = $_POST['nomeInstituicao'];
         $horaInicial = $_POST['horaInicial'];
         $horaFinal = $_POST['horaFinal'];
+        $statusDocumento = $_POST['statusDocumento'];
 
         // Convertendo as strings para timestamps
         $timestampInicial = strtotime($horaInicial);
@@ -56,7 +57,7 @@ class Cadastrar extends Controller
                 }
 
         $conn = $this->model('cadastrar');
-        $insertDocumento = $conn::insertDocumento( $idAluno, $arquivoNovo, $dataDoc , $horasTrabalhadas, $nomeInstituicao);
+        $insertDocumento = $conn::insertDocumento( $idAluno, $arquivoNovo, $dataDoc , $horasTrabalhadas, $nomeInstituicao, $statusDocumento);
         header("location: /home/admin");
     }
 
@@ -71,6 +72,7 @@ class Cadastrar extends Controller
         $nomeInstituicao = $_POST['nomeInstituicao'];
         $horaInicial = $_POST['horaInicial'];
         $horaFinal = $_POST['horaFinal'];
+        $statusDocumento = $_POST['statusDocumento'];
 
         // Convertendo as strings para timestamps
         $timestampInicial = strtotime($horaInicial);
@@ -95,7 +97,7 @@ class Cadastrar extends Controller
                 }
 
         $conn = $this->model('cadastrar');
-        $insertDocumento = $conn::insertDocumento( $idAluno, $arquivoNovo, $dataDoc , $horasTrabalhadas, $nomeInstituicao);
+        $insertDocumento = $conn::insertDocumento( $idAluno, $arquivoNovo, $dataDoc , $horasTrabalhadas, $nomeInstituicao, $statusDocumento);
 
         if($_SESSION['nivel'] == 2){
             header("location: /home/aluno");
@@ -106,11 +108,15 @@ class Cadastrar extends Controller
 
     public function aprovar($id)
     {
-        
+        $conn = $this->model('cadastrar');
+        $insertDocumento = $conn::aprovaDocumento($id);
+        echo "<script>window.location.href = '/Consulta/aprovacao' </script>";
     }
 
     public function recusar($id)
     {
-        
+        $conn = $this->model('cadastrar');
+        $insertDocumento = $conn::rejeitaDocumento($id);
+        echo "<script>window.location.href = '/Consulta/aprovacao' </script>";
     }
 }

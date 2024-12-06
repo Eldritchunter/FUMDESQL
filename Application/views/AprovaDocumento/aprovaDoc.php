@@ -42,7 +42,6 @@ date_default_timezone_set('America/Bahia');
                         </li>
                     <?php } ?>
                 </ul>
-                <hr class="line">
             </div>
 </body>
 
